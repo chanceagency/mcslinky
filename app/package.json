@@ -1,7 +1,7 @@
 {
   "name": "mcslinky",
   "productName": "McSlinky",
-  "version": "0.9.3",
+  "version": "0.9.6",
   "description": "An editor for ink",
   "main": "main-process/main.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "chokidar": "^1.6.0",
     "colors": "^1.2.1",
     "electron-settings": "^2.2.2",
+    "electron-window-state": "^5.0.3",
     "fuzzaldrin-plus": "^0.5",
     "inkjs": "^1.6.0",
     "lodash": "^4.13.1",

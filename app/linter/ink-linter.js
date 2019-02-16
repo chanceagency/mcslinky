@@ -194,7 +194,11 @@ let tagsWithoutEvents = {
      "disabled",
      "tester",
      "fuelPreview",
-     "distance"
+     "distance",
+     "setDestination",
+     "enabled",
+     "teleport"
+
   ],
   validParams: {}
 };
