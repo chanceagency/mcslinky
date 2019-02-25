@@ -1,7 +1,7 @@
 {
   "name": "mcslinky",
   "productName": "McSlinky",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "An editor for ink",
   "main": "main-process/main.js",
   "scripts": {
