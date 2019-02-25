@@ -288,7 +288,7 @@ function setupMenus(callbacks) {
         role: 'front'
       }
     );
-  } else if (process.platform === "win32") {
+  } else {
     // Windows specific menu
     var fileMenu = _.find(template, menu => menu.label == "File");
     console.log(fileMenu);
@@ -305,10 +305,7 @@ function setupMenus(callbacks) {
       }
     );
     console.log(fileMenu);
-  }
-  else
-  {
-    // Windows specific menu items
+
     template.find(x => x.label === "Help").submenu.push(
       {
         label: aboutWindowLabel,
