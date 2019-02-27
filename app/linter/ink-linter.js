@@ -71,6 +71,8 @@ let charTagsParam = {
       'drive*',
       'chat*',
       'audio*',
+      'rollup',
+      'rolldown',
     ],
     react: [
       'look_up',
@@ -158,6 +160,7 @@ let storyTags = {
       'lookleft',
       'getfeelgrida',
       'getfeelgridb',
+      'lookpax*',
     ]
   }
 }
