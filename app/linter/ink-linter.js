@@ -67,7 +67,13 @@ let charTagsParam = {
       'savywanted',
       'focus',
       'ignore',
-      'typing'],
+      'typing',
+      'drive*',
+      'chat*',
+      'audio*',
+      'rollup',
+      'rolldown',
+    ],
     react: [
       'look_up',
       'look_down',
@@ -107,6 +113,8 @@ let charTagsParam = {
       'huh',
       'pretty_please',
       'shock',
+      'questioning',
+      'eyes_widen', // AGONON only
     ]
   }
 }
@@ -140,11 +148,19 @@ let storyTags = {
       //'savyclose', // THIS IS INVALID, use savycloseup
       'savycloseup',
       'overshoulder',
+      'cutaway',
+      'chargehighangle',
+      'chargelowangle',
+      'chargeshort',
+      'chargelong',
     ],
     linaHands: [
       'checkwatch',
       'lookcenter',
-      'lookleft'
+      'lookleft',
+      'getfeelgrida',
+      'getfeelgridb',
+      'lookpax*',
     ]
   }
 }
@@ -194,7 +210,11 @@ let tagsWithoutEvents = {
      "disabled",
      "tester",
      "fuelPreview",
-     "distance"
+     "distance",
+     "setDestination",
+     "enabled",
+     "teleport"
+
   ],
   validParams: {}
 };
@@ -377,7 +397,7 @@ function hasTesterTagError(matchObject) {
 
 function hasInvalidParam(matchObject, param) {
   let validParams = tagsAndLinting[matchObject.tagName] && tagsAndLinting[matchObject.tagName].validParams;
-  if (validParams && !validParams.includes(param.toLowerCase())) {
+  if (validParams && !validParams.some(paramExp => new RegExp(paramExp).test(param.toLowerCase()))) {
     logBadTag(`Parameter for '${matchObject.tagName}' is not allowed: ${matchObject.fullTag}`, matchObject);
     return true;
   }

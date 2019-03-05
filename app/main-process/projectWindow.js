@@ -4,8 +4,9 @@ const dialog = electron.dialog;
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
 const Inklecate = require("./inklecate.js").Inklecate;
+const windowStateKeeper = require('electron-window-state');
 
-const electronWindowOptions = {
+var electronWindowOptions = {
   width: 1300,
   height: 730,
   minWidth: 350,
@@ -17,10 +18,21 @@ const electronWindowOptions = {
 var windows = [];
 
 function ProjectWindow(filePath) {
+    let mainWindowState = windowStateKeeper({
+       defaultWidth: electronWindowOptions.width,
+       defaultHeight: electronWindowOptions.height
+    });
+    
+    electronWindowOptions.x = mainWindowState.x;
+    electronWindowOptions.y = mainWindowState.y;
+    electronWindowOptions.width = mainWindowState.width;
+    electronWindowOptions.height = mainWindowState.height;
+    
     this.browserWindow = new BrowserWindow(electronWindowOptions);
     this.browserWindow.loadURL("file://" + __dirname + "/../renderer/index.html");
     this.browserWindow.setSheetOffset(49);
 
+    mainWindowState.manage(this.browserWindow);
     this.safeToClose = false;
 
     if( filePath ) {
