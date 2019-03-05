@@ -1,47 +1,43 @@
 {
   "name": "mcslinky",
   "productName": "McSlinky",
-  "version": "0.9.8",
+  "version": "0.10.0",
   "description": "An editor for ink",
   "main": "main-process/main.js",
   "scripts": {
     "postinstall": "node ../build/createDocumentnavigation.js && markdown-html resources/Documentation/WritingWithInk.md -s resources/Documentation/documentation.css -o renderer/documentation/embedded.html",
     "start": "electron main-process/main.js",
-    "test": "node_modules/.bin/ava linter/linter-test.js -verbose"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/awmcclain/slinky.git"
+    "url": "git+https://github.com/inkle/inky.git"
   },
   "keywords": [
     "ink",
     "narrative",
     "editor"
   ],
-  "author": "inkle Ltd and Andrew McClain & Robin Sloan",
+  "author": "inkle Ltd",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/awmcclain/slinky/issues"
+    "url": "https://github.com/inkly/inky/issues"
   },
+  "homepage": "http://www.inklestudios.com/ink",
   "devDependencies": {
-    "ava": "^0.25.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "electron": "^1.4.3",
+    "electron": "^2.0.7",
     "markdown-html": "^0.0.8",
     "mocha": "^4.0.1",
-    "spectron": "^3.2.6"
+    "spectron": "^3.8.0"
   },
   "dependencies": {
-    "chokidar": "^1.6.0",
-    "colors": "^1.2.1",
-    "electron-settings": "^2.2.2",
-    "electron-window-state": "^5.0.3",
+    "chokidar": "^2.0.4",
     "fuzzaldrin-plus": "^0.5",
-    "inkjs": "^1.6.0",
-    "lodash": "^4.13.1",
+    "inkjs": "^1.7.1",
+    "lodash": "^4.17.10",
     "mkdirp": "^0.5.1",
-    "randomstring": "^1.1.5",
-    "slash": "^2.0.0"
+    "randomstring": "^1.1.5"
   }
 }
